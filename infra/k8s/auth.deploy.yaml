@@ -13,19 +13,19 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: ssanusi1335/auth
-        env:
-          - name: JWT_KEY
-            valueFrom:
-              secretKeyRef:
-                name: jwt-secret
-                key: JWT_KEY
+        - name: auth
+          image: ssanusi1335/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-service
+  name: auth-srv
 spec:
   selector:
     app: auth
